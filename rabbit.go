@@ -58,13 +58,14 @@ func newConsumer(rabbitConfig RabbitConfiguration, mapping Mapping, messageChan 
 		return nil, fmt.Errorf("Exchange Declare: %s", err)
 	}
 
+	queueArguments := amqp.Table{"x-ha-policy": "all"}
 	q, err := c.channel.QueueDeclare(
-		mapping.Queue, // name
-		false,         // durable
-		false,         // delete when usused
-		false,         // exclusive
-		false,         // noWait
-		nil,           // arguments
+		mapping.Queue,  // name
+		false,          // durable
+		false,          // delete when usused
+		false,          // exclusive
+		false,          // noWait
+		queueArguments, // arguments
 	)
 	if err != nil {
 		return nil, fmt.Errorf("Queue Declare: %s", err)
