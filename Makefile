@@ -8,6 +8,7 @@ all: deps
 	@mkdir -p bin/
 	@echo "$(OK_COLOR)==> Building$(NO_COLOR)"
 	@go build
+	@mv rabbit-to-sidekiq bin/
 
 deps:
 	@echo "$(OK_COLOR)==> Installing dependencies$(NO_COLOR)"
@@ -18,3 +19,9 @@ updatedeps:
 	@echo "$(OK_COLOR)==> Updating all dependencies$(NO_COLOR)"
 	@go get -d -v -u ./...
 	@echo $(DEPS) | xargs -n1 go get -d -u
+
+clean:
+	@rm -rf bin/
+
+format:
+	go fmt ./...
