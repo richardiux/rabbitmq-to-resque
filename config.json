@@ -1,0 +1,18 @@
+{
+	"rabbitmq": {
+		"url": "amqp://guest:guest@localhost:5670/"
+	},
+	"redis": {
+		"host": "localhost",
+		"port": "6379"
+	},
+	"mappings": [
+		{
+			"exchange": "data_feeds",
+			"queue": "products.update",
+			"routingKey": "products.update",
+			"workerQueue": "data_feeds",
+			"workerClass": "DataFeedImportWorker"
+		}
+	]
+}
