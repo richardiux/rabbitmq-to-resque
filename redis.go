@@ -1,7 +1,6 @@
 package main
 
 import (
-	// "fmt"
 	"encoding/json"
 	"github.com/garyburd/redigo/redis"
 	"log"
