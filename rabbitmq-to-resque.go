@@ -14,7 +14,7 @@ func main() {
 	flag.Parse()
 
 	var configPath = flag.String("config", "./config.json", "Configuration file in JSON")
-	// configPath := "./config.json"
+
 	config, err := loadConfig(*configPath)
 	if err != nil {
 		log.Fatalf("%s", err)
