@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"log"
 )
 
@@ -10,7 +11,11 @@ type MessageDelivery struct {
 }
 
 func main() {
-	config, err := loadConfig()
+	flag.Parse()
+
+	var configPath = flag.String("config", "./config.json", "Configuration file in JSON")
+	// configPath := "./config.json"
+	config, err := loadConfig(*configPath)
 	if err != nil {
 		log.Fatalf("%s", err)
 	}

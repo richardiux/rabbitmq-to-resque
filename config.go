@@ -25,8 +25,8 @@ type RabbitConfiguration struct {
 	Url string
 }
 
-func loadConfig() (*configuration, error) {
-	configFile, err := ioutil.ReadFile("./config.json")
+func loadConfig(configPath string) (*configuration, error) {
+	configFile, err := ioutil.ReadFile(configPath)
 	if err != nil {
 		return nil, fmt.Errorf("configuration error: %v\n", err)
 	}
