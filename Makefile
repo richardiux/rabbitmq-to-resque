@@ -8,7 +8,7 @@ all: deps
 	@mkdir -p bin/
 	@echo "$(OK_COLOR)==> Building$(NO_COLOR)"
 	@go build
-	@mv rabbit-to-sidekiq bin/
+	@mv rabbit-to-resque bin/
 
 deps:
 	@echo "$(OK_COLOR)==> Installing dependencies$(NO_COLOR)"
